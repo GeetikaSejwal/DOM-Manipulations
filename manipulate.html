@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width,initial-scale=1.0">
+        <script src="jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#appendbtn').click(function(){
+                    $('#div1').append('<p> paragraph appended</p>')
+                })
+
+                $('#prependbtn').click(function(){
+                    $('#div1').prepend('<h1> prepend appended</h1>')
+                })
+
+                $('#afterbtn').click(function(){
+                    $('#div1').after('<p> paragraph after div element</p>')
+                })
+
+                $('#beforebtn').click(function(){
+                    $('#div1').before('<h1> paragraph before div element</p>')
+                })
+
+                $('#removebtn').click(function(){
+                    $('#div1').remove('p')
+                })
+
+                $('#emptybtn').click(function(){
+                    $('#div1').empty()
+                })
+
+                $('#appendTobtn').click(function(){
+                    $('#div2 p').appendTo('#div1')
+                })
+
+                $('#prependTobtn').click(function(){
+                    $('#div2 p').prependTo('#div1')
+                })
+               
+            //     $('#appendbtn').mouseenter(function(){
+            //        $('#div1 h3').clone().appendTo('#div2')
+            //    })
+
+               //second clon with img
+            //    $('#appendbtn').mouseenter(function(){
+            //        $('#div1 img').clone().appendTo('#div2')
+            //    })
+
+
+                //theory:
+                // remove()
+                // empty()
+                // appendTo()
+                // prependTo()
+                //clone()
+                //animate();$(selector).animate({css properties,speed,callback function})
+               //can't animate css property: color,background-color
+               //camel case backgroundColor 
+               
+               $('#animatebtn').click(function(){
+                   $('#div2').animate({left:'150px'}, 2000,function(){
+                      var p=$('#p').text()
+                      var h=$('#h').text()
+                       alert('div1 ' +p+" "+h)
+                   })
+                   $('#div2').animate({fontSize: '25px'},3000,function(){
+                       console.log('increased font size')
+                   })
+                   $('#div2').animate({top:'50px'},2000,function(){
+                       console.log('moved div2 down')
+                       alert('animation completed!!!!!')
+                   })
+               })
+               $('#stopbtn').click(function(){
+                   $('#div2').stop(true,true)
+               })
+            })
+
+        </script>
+        <style>
+            #div2{
+                width: 300px;
+                height: 100px;
+                position: relative;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h2>dom manipulations</h2>
+        <div id="div1" style="border: 1px solid black">
+            <p id="p">paragraph</p>
+            <p> second paragraph</p>
+            <h3 id="h">header</h3>
+            <img src="jerry.jpg" height="200" width="150">
+        </div>
+        <br>
+        <button id="appendbtn">Append</button>
+        <button id="prependbtn">Prepend</button>
+        <button id="afterbtn">After</button>
+        <button id="beforebtn">Before</button>
+        <button id="removebtn">Remove</button>
+        <button id="emptybtn">Empty</button>
+        <button id="appendTobtn">AppendTo</button>
+        <button id="prependTobtn">PrependTo</button>
+    <br><br>
+        <div id="div2" style="border: 1px solid tan;">
+            <p>
+                second paragraph inside div element
+            </p>
+        </div>
+        <br>
+        <button id="animatebtn">Animate</button>
+        <button id="stopbtn">Stop</button>
+        </div>
+
+        <!-- Dom traversing
+
+        explaination:
+
+        parent().css()
+        parents().css()
+        offsetParent()
+        parentsUntill()
+
+        <div>
+        <img>
+        <ul>
+        <li>
+        <a>
+        <p><spam></spam></p>
+        </a>
+        </li>
+        </ul>   
+        </div> -->
+
+    </body>
+</html>
